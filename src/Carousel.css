@@ -1,0 +1,23 @@
+@keyframes carousel {
+  /* Wait a bit till the image gets rendered, otherwise might encounter snapping. */
+  0%, 2% {
+    transform: translateX(-100%)
+  }
+  22%, 80% {
+    transform: translateX(0%)
+  }
+  100% {
+    transform: translateX(100%)
+  }
+}
+
+.carousel {
+  overflow: hidden;
+  margin: 0 auto;
+}
+
+.carousel__img {
+  animation-name: carousel;
+  animation-iteration-count: infinite;
+  max-height: 100%;
+}
