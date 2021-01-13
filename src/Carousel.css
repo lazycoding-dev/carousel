@@ -1,23 +1,31 @@
 @keyframes carousel {
-  /* Wait a bit till the image gets rendered, otherwise might encounter snapping. */
+  /* "Wait" first 2% of animation til img fully renders and only after then move it. */
   0%, 2% {
+    /* Start with hidden img to the left, -100% of the container width in relation to its "expected" position. */
     transform: translateX(-100%)
   }
   22%, 80% {
+    /* From 22% til 80% of animation duration, keep the image in center - don't move it anywhere in relation to its "expected" position. */
     transform: translateX(0%)
   }
   100% {
+    /* By the end, the image should be out of sight in the right side, 100% of the container width to the right in relation to its "expected" position. */
     transform: translateX(100%)
   }
 }
 
 .carousel {
+  /* Hide img when out of sight - we don't want scrollbars to appear. */
   overflow: hidden;
+  /* Center whole component - not important. */
   margin: 0 auto;
 }
 
 .carousel__img {
+  /* @keyframes identifier */
   animation-name: carousel;
+  /* Run animations until the end of times. */
   animation-iteration-count: infinite;
+  /* Constrain image dimensions. */
   max-height: 100%;
 }
